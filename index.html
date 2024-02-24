@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop Proposal CVPR 2024</title>
+    <style>
+        /* link style */
+        a {
+            text-decoration: none;
+            font-style: italic;
+            color: inherit;
+        }
+
+        a:hover {
+            font-weight: bold;
+        }
+
+
+        h1 {
+            /* font-size: 28px; */
+            font-weight: normal;
+            margin: 0 !important;
+            padding-bottom: 50px;
+            padding-top: 50px;
+            /* margin-bottom: 25px; */
+        }
+
+        h2 {
+            font-size: 28px;
+            font-weight: normal;
+            margin: 0;
+            padding-top: 5vh;
+        }
+
+        h1,
+        h2,
+        .paragraph {
+            padding-left: 15vw;
+            padding-right: 15vw;
+            padding-bottom: 30px;
+
+        }
+
+        li,
+        p {
+            /* padding-left:15vw; */
+            color: rgb(42, 42, 42);
+            font-size: 20px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        h1 span,
+        h2 span {
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+
+
+        .chapter {
+            width: 100%;
+            /* padding-left: 15vw; */
+            background-color: #fff;
+            margin-bottom: 0;
+            margin-top: 0;
+        }
+
+        .chapter h2 {
+            color: #0072CA;
+            font-size: 32px;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+
+        }
+
+        p {
+            text-indent: 2em;
+        }
+
+        li {
+            margin-bottom: 18px;
+        }
+
+
+        /* layout style */
+        /* body{
+            background-color: rgb(221, 221, 221);
+        } */
+        .container {
+            z-index: 0;
+            width: 100%;
+            /* max-width: 1000px; */
+
+        }
+
+        table {
+            width: 80%;
+            margin: auto;
+            border-collapse: collapse;
+            border-spacing: 0 5px;
+           
+        }
+
+        td {
+            padding: 10px;
+            font-size: 20px;
+            padding-left: 20px;
+
+        }
+
+        tr:nth-child(odd) {
+            background-color: #f2f2f2;
+            /* 灰色背景 */
+
+        }
+
+        .highlight {
+            border-left: 6px solid #0072CA;
+        }
+
+        td:first-child {
+            max-width: 50%;
+            /* font-size:medium; */
+        }
+
+        td:last-child {
+            text-align: center;
+            /* text-align: right; */
+        }
+
+
+
+        /* title style */
+        body {
+            /* background-color: #fff; */
+            font-family: "Times New Roman", Times, serif;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            background-image: url('./images/banner.png');
+
+            background-size: 100% 100%;
+            /* 按照原始高度，自动调整宽度 */
+            background-repeat: no-repeat;
+            /* 只显示一次 */
+            /* background-size: cover; */
+        }
+
+        .title {
+            width: 100%;
+            height: 85vh;
+            min-height: 600px;
+            z-index: -2;
+            /* 图片尺寸适应容器 */
+            /* position: relative; */
+            /* 相对定位，使得内容在容器内定位 */
+            overflow: hidden;
+            /* 隐藏溢出部分 */
+        }
+
+        .title-box {
+            position: fixed;
+            z-index: -1;
+
+            top: 13vh;
+            right: 10vw;
+            /* width: 35vw; */
+            border-radius: 50px;
+            color: white;
+            font-size: 30px;
+            text-align: left;
+            /* background-color: #fff; */
+            background: rgba(255, 255, 255, .1);
+            backdrop-filter: blur(10px);
+            padding: 20px 40px;
+            /* 毛玻璃效果，10px 模糊度 */
+        }
+
+        .title-box h1 {
+            margin: 0;
+            padding: 10px;
+            font-size: 40px;
+            text-align: left;
+            margin-bottom: 0;
+        }
+
+        .title-box h2 {
+            margin: 0;
+            padding: 15px;
+            margin-top: 30px;
+            color: rgb(227, 227, 227);
+            font-weight: normal;
+            font-size: 18px;
+        }
+
+        .title-box h3 {
+            margin: 0;
+            padding: 0;
+            padding-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            /* 两列，并且每列宽度相等 */
+            align-content: center;
+            /* 垂直居中 */
+            gap: 20px;
+            /* 间距 */
+            width: fit-content;
+        }
+
+        .title-box h3 div {
+            margin: 0;
+            padding: 0;
+            font-size: 18px;
+            border-radius: 100px;
+            padding: 10px 20px;
+            text-align: center;
+            width: fit-content;
+            border: 1px solid #1CB0DD;
+
+        }
+
+        .high {
+            font-weight: bolder;
+            font-size: 45px !important;
+        }
+
+        /* invitor style */
+        .introduciton {
+            margin-bottom: 20px;
+            box-shadow: inset;
+
+        }
+
+        .item {
+
+            margin-bottom: 30px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+            /* 水平偏移量 垂直偏移量 模糊度 扩散度 阴影颜色 */
+            padding: 30px;
+            border-radius: 30px;
+        }
+
+        .introduction .item .row {
+            display: flex;
+            align-items: center;
+
+        }
+
+        .row>div {
+            font-size: 23px;
+            padding-left: 30px;
+        }
+
+        .row>div div {
+            font-size: 20px;
+            margin-top: 10px;
+            color: grey;
+        }
+
+        .image {
+            flex: 0 0 auto;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+
+            /* overflow: hidden;  */
+            object-fit: cover;
+        }
+
+        .introduciton .content {
+            flex: 1;
+            margin-top: 20px;
+        }
+
+        .content p {
+            text-indent: 0;
+            margin: 0;
+            /* padding: 10px; */
+        }
+
+        /* organize style */
+        .organize {
+            margin-bottom: 20px;
+            box-shadow: inset;
+        }
+
+        .organize .item {
+            display: flex;
+            margin-bottom: 30px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+            /* 水平偏移量 垂直偏移量 模糊度 扩散度 阴影颜色 */
+            padding: 30px;
+            border-radius: 30px;
+        }
+
+        .organize .row {
+            /* width: fit-content; */
+            display: block;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .organize .content {
+            flex: 1;
+        }
+
+        .organize .row div {
+            padding-left: 0;
+            color: #0072CA;
+            text-align: center;
+
+        }
+
+        .organize .content {
+            padding-left: 30px;
+        }
+
+        .left-bar {
+            position: fixed;
+            top: 40%;
+            left: 20px;
+            border-left: #1DB2DF solid 5px;
+        }
+
+        .left-bar div {
+            font-size: 20px;
+            padding: 15px;
+            color: #1DB2DF;
+            /* filter:invert(100%); */
+            /* background-color: #fff; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="title">
+        <div class="title-box">
+            <h1>1st Workshop on </h1>
+            <h1 class="high">Neural Volumetric Video</h1>
+
+            <h3>
+                <div>Dynamic view synthesis
+
+                </div>
+                <div>Volumetric video</div>
+                <div>4D scene representation </div>
+                <div>AR/VR glasses</div>
+            </h3>
+            <h2>NVV @ CVPR2024</h2>
+
+
+        </div>
+    </div>
+    <div class="left-bar">
+         <a href="#1"><div>
+                Motivation</div>
+            </a>
+        <a href="#2"><div> 
+                Overview</div>
+            </a>
+        <a href="#3"> <div>
+                Schedule</div>
+            </a>
+         <a href="#4"><div>
+                Speakers</div>
+            </a>
+         <a href="#5"><div>
+                Organizers</div>
+            </a>
+    </div>
+    <div class="container">
+
+        <div class="chapter" id="1">
+            <div style="height: 10vh;z-index:0;position:relative;margin:0;"></div>
+            <h2><span><svg t="1708739705214" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="16029" width="32" height="32">
+                        <path
+                            d="M281.674 253.424c11.553-14.585 24.288-28.14 38.208-40.267l-68.978-69.013c-10.828-10.867-28.404-10.867-39.275 0-10.831 10.831-10.831 28.404 0 39.235l70.046 70.043zM506.013 142.469c0.268 0 0.494 0 0.802 0 9.109 0 18.109 0.571 26.955 1.487l0-93.986c0-15.327-12.432-27.757-27.76-27.757s-27.721 12.429-27.721 27.757l0 93.968c8.846-0.895 17.842-1.469 26.956-1.469 0.27 0 0.534 0 0.762 0zM730.414 253.388l69.971-70.007c10.866-10.831 10.866-28.404 0-39.235-10.794-10.867-28.405-10.867-39.277 0l-69.018 69.013c13.958 12.123 26.695 25.664 38.324 40.227zM213.494 450.225c0-13.403 1.07-26.519 2.633-39.483l-98.682 0c-15.289 0-27.722 12.432-27.722 27.757 0 15.328 12.434 27.757 27.722 27.757l96.393 0c-0.229-5.28-0.345-10.581-0.345-16.033zM894.563 410.745l-98.643 0c1.6 12.964 2.633 26.082 2.633 39.483 0 5.45-0.115 10.753-0.305 16.033l96.315 0c15.332 0 27.722-12.429 27.722-27.757s-12.39-27.757-27.722-27.757zM745.017 638.262c-11.286 16.547-23.218 30.843-34.695 43.77l50.787 50.829c10.868 10.831 28.483 10.831 39.277 0 10.866-10.867 10.866-28.404 0-39.275l-55.37-55.324zM211.627 693.585c-10.831 10.867-10.831 28.404 0 39.275 10.868 10.831 28.448 10.831 39.275 0l50.83-50.863c-11.475-12.889-23.412-27.222-34.699-43.731l-55.403 55.324zM760.039 450.225c0.037-57.556-19.138-110.785-51.438-153.414-28.33-37.442-66.806-66.802-111.379-84.036l0.229-1.222-19.026-5.586c-14.798-4.29-30.051-7.265-45.605-8.867l-2.211-0.246-0.075 0-0.079-0.019c-7.623-0.724-15.557-1.279-23.83-1.279l-1.218 0c-8.276 0-16.207 0.557-23.833 1.279l-0.115 0.019-2.286 0.246c-15.535 1.6-30.791 4.575-45.549 8.867l-18.416 5.374 0.19 1.222c-44.802 17.214-83.505 46.651-111.99 84.244-32.258 42.628-51.438 95.854-51.438 153.414 0 41.274 7.132 75.207 18.227 103.29 16.661 42.114 42.094 70.559 62.533 92.138 10.22 10.754 19.22 19.941 25.317 27.795 6.254 7.892 9.265 13.995 10.141 18.837 4.459 23.565 4.917 53.306 4.917 60.854l0 2.174c0 34.085 27.609 61.617 61.659 61.655l142.51 0c34.092-0.037 61.659-27.609 61.659-61.655l0-2.097c-0.037-7.474 0.458-37.291 4.919-60.893 0.608-3.278 2.058-7.017 4.917-11.591 4.88-7.97 14.11-17.883 25.548-29.819 17.083-17.959 38.815-40.604 56.091-72.805 17.312-32.161 29.703-73.706 29.626-127.882zM701.813 537.676c-13.614 34.336-34.053 57.575-53.763 78.391-9.841 10.411-19.487 20.095-27.911 30.812-8.311 10.562-15.745 22.65-18.606 37.481-5.377 28.94-5.607 59.978-5.638 68.862 0 1.181 0 1.828 0 2.096-0.037 10.295-8.314 18.606-18.608 18.606l-142.51 0c-5.223 0-9.761-2.059-13.194-5.45-3.391-3.434-5.412-7.934-5.412-13.154 0-0.268 0-0.953 0-2.172-0.037-8.957-0.306-39.921-5.682-68.783-1.828-9.797-5.834-18.571-10.674-26.348-8.579-13.612-19.559-24.819-30.889-36.832-17.116-17.842-35.232-37.119-49.341-63.41-14.07-26.309-24.517-59.745-24.557-107.54 0.037-47.947 15.862-91.95 42.706-127.427 26.845-35.442 64.595-62.209 108.175-75.246l5.377-1.638c10.524-2.708 21.315-4.861 32.429-6.026l0.075 0 2.06-0.229c6.519-0.627 12.847-1.03 19.103-1.066l1.105 0.115 1.106-0.076c6.212 0 12.579 0.42 19.063 1.03l-0.079 0 2.137 0.229 0.037 0c11.093 1.163 21.887 3.277 32.372 6.026l5.451 1.638c43.582 13.037 81.329 39.807 108.175 75.246 26.801 35.478 42.666 79.482 42.666 127.427 0.003 36.409-6.094 64.511-15.169 87.446zM532.782 197.107l0.079 0zM479.17 197.107l0 0c0 0 0.037 0 0.075 0l-0.075 0zM576.706 833.825l-141.369 0c-14.604 0-26.499 11.822-26.499 26.539 0 14.564 11.899 26.465 26.499 26.465l141.369 0c14.604 0 26.499-11.899 26.499-26.465 0-14.721-11.899-26.539-26.499-26.539zM576.706 900.704l-141.369 0c-14.604 0-26.499 11.857-26.499 26.464 0 14.678 11.899 26.539 26.499 26.539l141.369 0c14.604 0 26.499-11.857 26.499-26.539 0-14.605-11.899-26.464-26.499-26.464zM518.406 968.116l-72.805 0c0 0.801-0.154 1.561-0.154 2.404 0 14.643 22.498 26.499 43.297 26.499l34.546 0c20.818 0 43.277-11.857 43.277-26.499 0-0.837-0.115-1.6-0.115-2.404l-48.044 0z"
+                            fill="#0072CA" p-id="16030"></path>
+                    </svg>
+                </span>Motivation</h2>
+            <div class="paragraph">
+                <p>
+                    Dynamic view synthesis aims to enable users to watch dynamic 3D scenes from arbitrary views for
+                    immersive experiences. This is an important technique for many AR/VR applications, such as
+                    volumetric filmmaking, virtual telepresence, and video games. Recent methods have achieved
+                    impressive
+                    progress on novel view synthesis of static scenes. For instance, NeRF and its follow-up works are
+                    able
+                    to efficiently produce high-quality 3D scene representation that supports real-time rendering.
+                    However,
+                    it is not trivial to extend the success on static scenes to dynamic scenes. A dynamic scene can be
+                    seen
+                    as a large number of static scenes along the temporal dimension. Therefore, to enable high-fidelity
+                    and interactive AR/VR applications, dynamic scenes will require much more than static scenes on the
+                    model capacity and reconstruction speed, while expecting much smaller model storage per frame for
+                    transmission
+                </p>
+            </div>
+        </div>
+        <div class="chapter" id="2">
+            <h2><span><svg t="1708739654397" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="14622" width="32" height="32">
+                        <path
+                            d="M850.17 456.78v-73.26-118.37c0-9.68 0.01-19.36 0-29.04-0.04-28.56-12.39-57.22-35.04-75.11-8.76-6.92-17.31-11.88-27.69-16.03-8.57-3.43-17.55-4.95-26.72-5.82-2.93-0.28-5.85-0.32-8.78-0.32H307.57c-14.04 0-28.32-0.77-42.34 0.16-18 1.21-35.97 6.7-50.56 17.54-8.91 6.62-15.88 13.55-22.56 22.39-5.45 7.21-9.17 15.09-12.47 23.5-4.63 11.79-5.79 24.56-5.79 37.13v502.78c0 15.18-0.02 30.37 0 45.55 0.03 25.5 9.7 50.14 27.55 68.45 18.44 18.91 44.06 28.84 70.3 28.84h307.88c13.08 0 25.6-11.5 25-25-0.61-13.55-10.98-25-25-25H304.61c-11.47 0-22.93 0.06-34.4 0a79.72 79.72 0 0 1-9.76-0.65c2.22 0.3 4.43 0.6 6.65 0.89a74.495 74.495 0 0 1-18.07-4.95l5.97 2.52a74.552 74.552 0 0 1-15.81-9.25c1.69 1.3 3.37 2.61 5.06 3.91-4.81-3.77-9.1-8.06-12.87-12.87 1.3 1.69 2.61 3.37 3.91 5.06a74.552 74.552 0 0 1-9.25-15.81l2.52 5.97a74.495 74.495 0 0 1-4.95-18.07c0.3 2.22 0.6 4.43 0.89 6.65-0.96-7.44-0.65-15.06-0.65-22.56v-39.55-59.84-73.63-80.92-81.71-76.01-63.81-45.12c0-6.64-0.02-13.28 0-19.93 0.01-3.38 0.22-6.73 0.65-10.09-0.3 2.22-0.6 4.43-0.89 6.65 0.89-6.23 2.54-12.26 4.95-18.07l-2.52 5.97a74.552 74.552 0 0 1 9.25-15.81c-1.3 1.69-2.61 3.37-3.91 5.06 3.77-4.81 8.06-9.1 12.87-12.87-1.69 1.3-3.37 2.61-5.06 3.91a74.552 74.552 0 0 1 15.81-9.25l-5.97 2.52a74.495 74.495 0 0 1 18.07-4.95c-2.22 0.3-4.43 0.6-6.65 0.89 6.87-0.88 13.84-0.65 20.75-0.65H736.48c5.71 0 11.43-0.02 17.14 0 3.35 0.01 6.67 0.22 9.99 0.65-2.22-0.3-4.43-0.6-6.65-0.89 6.23 0.89 12.26 2.54 18.07 4.95l-5.97-2.52a74.552 74.552 0 0 1 15.81 9.25c-1.69-1.3-3.37-2.61-5.06-3.91 4.81 3.77 9.1 8.06 12.87 12.87-1.3-1.69-2.61-3.37-3.91-5.06a74.552 74.552 0 0 1 9.25 15.81l-2.52-5.97a74.495 74.495 0 0 1 4.95 18.07c-0.3-2.22-0.6-4.43-0.89-6.65 1.21 9.4 0.65 19.16 0.65 28.62V456.76c0 13.08 11.5 25.6 25 25 13.51-0.59 24.96-10.97 24.96-24.98z"
+                            fill="#0072CA" p-id="14623"></path>
+                        <path
+                            d="M325.17 345.87l7.15 0.06 19.28 0.15c9.57 0.07 19.14 0.15 28.7 0.22l34.78 0.27 38.35 0.3 38.45 0.3c12.03 0.09 24.07 0.19 36.1 0.28l30.3 0.24c7.31 0.06 14.63 0.11 21.94 0.17 3.44 0.03 6.88 0.07 10.33 0.08h0.45c4.13 0.16 7.98-0.71 11.56-2.58 3.72-1.21 6.94-3.28 9.65-6.2 2.93-2.72 4.99-5.94 6.2-9.65 1.88-3.58 2.74-7.43 2.58-11.56-0.36-2.66-0.71-5.32-1.07-7.98-1.43-5.08-4-9.49-7.72-13.24l-6.07-4.69c-4.68-2.71-9.73-4.08-15.14-4.1l-7.15-0.06-19.28-0.15c-9.57-0.07-19.14-0.15-28.7-0.22l-34.78-0.27-38.35-0.3-38.45-0.3c-12.03-0.09-24.07-0.19-36.1-0.28l-30.3-0.24c-7.31-0.06-14.63-0.11-21.94-0.17-3.44-0.03-6.88-0.07-10.33-0.08h-0.45c-4.13-0.16-7.98 0.71-11.56 2.58-3.72 1.21-6.94 3.28-9.65 6.2-2.93 2.72-4.99 5.94-6.2 9.65-1.88 3.58-2.74 7.43-2.58 11.56 0.36 2.66 0.71 5.32 1.07 7.98 1.43 5.08 4 9.49 7.72 13.24l6.07 4.69c4.68 2.71 9.72 4.08 15.14 4.1zM325.17 532.51l12.72 0.21c10.18 0.16 20.37 0.33 30.55 0.49l37.1 0.6c10.65 0.17 21.31 0.34 31.96 0.52 5.18 0.08 10.36 0.2 15.54 0.25h0.22c4.13 0.16 7.98-0.71 11.56-2.58 3.72-1.21 6.94-3.28 9.65-6.2 2.93-2.72 4.99-5.94 6.2-9.65 1.88-3.58 2.74-7.43 2.58-11.56-0.36-2.66-0.71-5.32-1.07-7.98-1.43-5.08-4-9.49-7.72-13.24l-6.07-4.69c-4.68-2.71-9.73-4.08-15.14-4.1l-12.72-0.21c-10.18-0.16-20.37-0.33-30.55-0.49l-37.1-0.6c-10.65-0.17-21.31-0.34-31.96-0.52-5.18-0.08-10.36-0.2-15.54-0.25h-0.22c-4.13-0.16-7.98 0.71-11.56 2.58-3.72 1.21-6.94 3.28-9.65 6.2-2.93 2.72-4.99 5.94-6.2 9.65-1.88 3.58-2.74 7.43-2.58 11.56 0.36 2.66 0.71 5.32 1.07 7.98 1.43 5.08 4 9.49 7.72 13.24l6.07 4.69c4.68 2.71 9.72 4.08 15.14 4.1zM323.48 728.45c3.59 0.04 7.19 0.07 10.78 0.11l25.89 0.27c10.39 0.11 20.79 0.21 31.18 0.32 9.02 0.09 18.05 0.19 27.07 0.28 4.38 0.05 8.76 0.12 13.13 0.14h0.19c4.13 0.16 7.98-0.71 11.56-2.58 3.72-1.21 6.94-3.28 9.65-6.2 2.93-2.72 4.99-5.94 6.2-9.65 1.88-3.58 2.74-7.43 2.58-11.56-0.36-2.66-0.71-5.32-1.07-7.98-1.43-5.08-4-9.49-7.72-13.24l-6.07-4.69c-4.68-2.71-9.73-4.08-15.14-4.1-3.59-0.04-7.19-0.07-10.78-0.11l-25.89-0.27c-10.39-0.11-20.79-0.21-31.18-0.32-9.02-0.09-18.05-0.19-27.07-0.28-4.38-0.05-8.76-0.12-13.13-0.14h-0.19c-4.13-0.16-7.98 0.71-11.56 2.58-3.72 1.21-6.94 3.28-9.65 6.2-2.93 2.72-4.99 5.94-6.2 9.65-1.88 3.58-2.74 7.43-2.58 11.56 0.36 2.66 0.71 5.32 1.07 7.98 1.43 5.08 4 9.49 7.72 13.24l6.07 4.69c4.68 2.72 9.72 4.08 15.14 4.1zM740.03 578.91c0.15 0.19 0.3 0.38 0.44 0.57-1.3-1.69-2.61-3.37-3.91-5.06 6.52 8.45 11.96 17.69 16.13 27.52l-2.52-5.97c4.23 10.03 7.12 20.59 8.59 31.37-0.3-2.22-0.6-4.43-0.89-6.65 1.47 10.97 1.48 22.1 0.02 33.07 0.3-2.22 0.6-4.43 0.89-6.65-1.47 10.87-4.35 21.5-8.59 31.61l2.52-5.97c-4.15 9.84-9.56 19.1-16.09 27.56 1.3-1.69 2.61-3.37 3.91-5.06a125.113 125.113 0 0 1-22.13 22.1c1.69-1.3 3.37-2.61 5.06-3.91-8.45 6.52-17.69 11.96-27.52 16.13l5.97-2.52a123.827 123.827 0 0 1-31.37 8.59c2.22-0.3 4.43-0.6 6.65-0.89-10.97 1.47-22.1 1.48-33.07 0.02 2.22 0.3 4.43 0.6 6.65 0.89-10.87-1.47-21.5-4.35-31.61-8.59l5.97 2.52c-9.84-4.15-19.1-9.56-27.56-16.09 1.69 1.3 3.37 2.61 5.06 3.91a125.113 125.113 0 0 1-22.1-22.13c1.3 1.69 2.61 3.37 3.91 5.06-6.52-8.45-11.96-17.69-16.13-27.52a76591182022511300 76591182022511300 0 0 0-6.07-25.4c0.3 2.22 0.6 4.43 0.89 6.65-1.47-10.97-1.48-22.1-0.02-33.07-0.3 2.22-0.6 4.43-0.89 6.65 1.47-10.87 4.35-21.5 8.59-31.61l-2.52 5.97c4.15-9.84 9.56-19.1 16.09-27.56-1.3 1.69-2.61 3.37-3.91 5.06 6.42-8.27 13.86-15.68 22.13-22.1-1.69 1.3-3.37 2.61-5.06 3.91 8.45-6.52 17.69-11.96 27.52-16.13l-5.97 2.52c10.03-4.23 20.59-7.12 31.37-8.59-2.22 0.3-4.43 0.6-6.65 0.89 10.97-1.47 22.1-1.48 33.07-0.02-2.22-0.3-4.43-0.6-6.65-0.89 10.87 1.47 21.5 4.35 31.61 8.59l-5.97-2.52c9.84 4.15 19.1 9.56 27.56 16.09-1.69-1.3-3.37-2.61-5.06-3.91a125.55 125.55 0 0 1 21.66 21.56c2.26 2.44 4.95 4.16 8.05 5.17 2.98 1.57 6.19 2.28 9.63 2.15 3.44 0.13 6.65-0.59 9.63-2.15 3.1-1.01 5.78-2.73 8.05-5.17 4.37-4.76 7.62-11.02 7.32-17.68-0.3-2.22-0.6-4.43-0.89-6.65-1.19-4.24-3.33-7.91-6.43-11.03-9.34-11.88-20.88-21.88-33.4-30.29a124.19 124.19 0 0 0-16.55-9.35c-7.53-3.51-15.28-6.71-23.26-9.06-6-1.77-12.12-3.07-18.31-3.92-8.28-1.14-16.46-2.12-24.83-2.03-8.39 0.09-16.76 1.13-25.03 2.48-6.24 1.01-12.41 2.51-18.42 4.47-3.04 0.99-6.04 2.1-8.99 3.33-4.87 2.02-9.75 4.04-14.45 6.42-5.87 2.98-11.49 6.43-16.82 10.3-7.01 5.1-13.84 10.51-19.97 16.65-6.01 6.02-11.32 12.71-16.32 19.58-3.75 5.15-7.09 10.58-9.99 16.25a166.4 166.4 0 0 0-9.65 22.88c-1.99 5.93-3.54 12-4.62 18.16-1.44 8.22-2.5 16.59-2.71 24.94-0.16 6.26 0.16 12.53 0.95 18.74 1.07 8.4 2.29 16.69 4.62 24.84 2.31 8.11 5.53 15.97 9.05 23.63a122.74 122.74 0 0 0 9.58 17.08c2.98 4.45 6.28 8.67 9.59 12.87 2.07 2.62 4.23 5.16 6.5 7.61 4.44 4.79 9.25 9.22 14.39 13.25 6.65 5.21 13.34 10.2 20.71 14.34 7.23 4.05 14.91 7.36 22.64 10.29 13.66 5.16 28.31 7.76 42.86 8.66 6.24 0.38 12.51 0.3 18.74-0.26 8.36-0.75 16.76-1.94 24.92-3.94 6.19-1.52 12.26-3.51 18.13-5.97 7.92-3.31 15.66-6.74 22.98-11.25 7.37-4.54 14.35-9.85 20.91-15.48 4.94-4.24 9.55-8.86 13.77-13.83 5.44-6.41 10.59-13.18 14.99-20.36s7.77-14.77 11.01-22.53c5.69-13.62 8.54-27.92 9.99-42.58 1.43-14.57 0.11-29.4-2.83-43.71a122 122 0 0 0-5.27-18.28c-2.97-7.94-6.38-15.81-10.55-23.21-4.15-7.36-9.16-14.04-14.36-20.69-2.26-2.44-4.95-4.16-8.05-5.17-2.98-1.57-6.19-2.28-9.63-2.15-3.44-0.13-6.65 0.59-9.63 2.15-3.1 1.01-5.78 2.73-8.05 5.17-4.37 4.76-7.62 11.02-7.32 17.68 0.3 2.22 0.6 4.43 0.89 6.65 1.19 4.21 3.33 7.89 6.43 11z"
+                            fill="#0072CA" p-id="14624"></path>
+                        <path
+                            d="M718.99 752.28c2.91 3.71 5.82 7.42 8.72 11.13l20.94 26.73c8.42 10.74 16.83 21.48 25.25 32.23 7.28 9.29 14.55 18.58 21.83 27.87 3.55 4.53 7.04 9.11 10.65 13.6 0.05 0.06 0.1 0.13 0.15 0.19 2.26 2.44 4.95 4.16 8.05 5.17 2.98 1.57 6.19 2.28 9.63 2.15 3.44 0.13 6.65-0.59 9.63-2.15 3.1-1.01 5.78-2.73 8.05-5.17 4.37-4.76 7.62-11.02 7.32-17.68-0.3-2.22-0.6-4.43-0.89-6.65-1.19-4.24-3.33-7.91-6.43-11.03a8465.5 8465.5 0 0 1-8.72-11.13l-20.94-26.73c-8.42-10.74-16.83-21.48-25.25-32.23-7.28-9.29-14.55-18.58-21.83-27.87-3.55-4.53-7.04-9.11-10.65-13.6-0.05-0.06-0.1-0.13-0.15-0.19-2.26-2.44-4.95-4.16-8.05-5.17-2.98-1.57-6.19-2.28-9.63-2.15-3.44-0.13-6.65 0.59-9.63 2.15-3.1 1.01-5.78 2.73-8.05 5.17-4.37 4.76-7.62 11.02-7.32 17.68 0.3 2.22 0.6 4.43 0.89 6.65 1.18 4.23 3.33 7.91 6.43 11.03z"
+                            fill="#0072CA" p-id="14625"></path>
+                    </svg>
+                </span>Overview</h2>
+            <div class="paragraph">
+                <p>This workshop aims to bring researchers from the field of dynamic view synthesis together to
+                    discuss the latest progress and important technical challenges of this task. More concretely, we
+                    have
+                    the following question to talk about:</p>
+                <p>
+                <ul>
+                    <li>Assuming that the input observations are sufficient, e.g., videos recorded by the dense camera
+                        array, what are the right 4D scene representations that can faithfully capture complex dynamic
+                        scenes while being storage-efficient for easy transmission.</li>
+                    <li>For the immersive telepresence, will the image-based blending technique be the ultimate
+                        solution?
+                        What are the limitations of this technique?</li>
+                    <li>How to expand the view synthesis range when the input is monocular video?</li>
+                    <li>
+                        What is the product form of the camera for common users to produce their own volumetric
+                        videos of daily life?
+                    </li>
+                </ul>
+                </p>
+                <p>
+                    More broadly, given the rapid advancements in AR/VR glasses, we hope that this workshop will
+                    facilitate discussions on how dynamic view synthesis techniques can be optimized to enhance content
+                    capture and display on these devices.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="chapter" id="3">
+            <h2><span><svg t="1708740250427" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="17307" width="32" height="32">
+                        <path
+                            d="M867.027899 125.97411 670.695349 125.97411 670.695349 89.843214c0-16.954137-13.745049-30.699186-30.699186-30.699186s-30.699186 13.745049-30.699186 30.699186l0 36.130895L415.738609 125.97411 415.738609 89.843214c0-16.954137-13.745049-30.699186-30.699186-30.699186s-30.699186 13.745049-30.699186 30.699186l0 36.130895L160.478971 125.97411c-16.954137 0-30.699186 13.745049-30.699186 30.699186L129.779785 930.433998c0 16.954137 13.745049 30.699186 30.699186 30.699186l706.549951 0c16.954137 0 30.699186-13.745049 30.699186-30.699186L897.728108 156.673296C897.727085 139.718135 883.983059 125.97411 867.027899 125.97411zM354.340237 187.372481l0 35.905768c0 16.954137 13.745049 30.699186 30.699186 30.699186s30.699186-13.745049 30.699186-30.699186l0-35.905768 193.557344 0 0 35.905768c0 16.954137 13.745049 30.699186 30.699186 30.699186s30.699186-13.745049 30.699186-30.699186l0-35.905768 165.633365 0 0 108.648512L191.178157 296.020994 191.178157 187.372481 354.340237 187.372481zM191.178157 899.734812 191.178157 357.419366l645.151579 0L836.329736 899.734812 191.178157 899.734812z"
+                            p-id="17308" fill="#0072CA"></path>
+                        <path
+                            d="M367.464139 468.474694l-99.414197 0c-8.010441 0-14.503319 6.493901-14.503319 14.503319l0 75.953879c0 8.010441 6.493901 14.503319 14.503319 14.503319l99.414197 0c8.010441 0 14.503319-6.493901 14.503319-14.503319l0-75.953879C381.967458 474.967572 375.47458 468.474694 367.464139 468.474694z"
+                            p-id="17309" fill="#0072CA"></path>
+                        <path
+                            d="M561.364291 468.474694l-99.414197 0c-8.010441 0-14.503319 6.493901-14.503319 14.503319l0 75.953879c0 8.010441 6.492878 14.503319 14.503319 14.503319l99.414197 0c8.010441 0 14.503319-6.493901 14.503319-14.503319l0-75.953879C575.86761 474.967572 569.374732 468.474694 561.364291 468.474694z"
+                            p-id="17310" fill="#0072CA"></path>
+                        <path
+                            d="M755.264443 468.474694l-99.414197 0c-8.010441 0-14.503319 6.493901-14.503319 14.503319l0 75.953879c0 8.010441 6.493901 14.503319 14.503319 14.503319l99.414197 0c8.010441 0 14.503319-6.493901 14.503319-14.503319l0-75.953879C769.768785 474.967572 763.274884 468.474694 755.264443 468.474694z"
+                            p-id="17311" fill="#0072CA"></path>
+                        <path
+                            d="M367.464139 658.779971l-99.414197 0c-8.010441 0-14.503319 6.493901-14.503319 14.503319l0 75.953879c0 8.010441 6.493901 14.503319 14.503319 14.503319l99.414197 0c8.010441 0 14.503319-6.493901 14.503319-14.503319l0-75.953879C381.967458 665.272849 375.47458 658.779971 367.464139 658.779971z"
+                            p-id="17312" fill="#0072CA"></path>
+                        <path
+                            d="M561.364291 658.779971l-99.414197 0c-8.010441 0-14.503319 6.493901-14.503319 14.503319l0 75.953879c0 8.010441 6.492878 14.503319 14.503319 14.503319l99.414197 0c8.010441 0 14.503319-6.493901 14.503319-14.503319l0-75.953879C575.86761 665.272849 569.374732 658.779971 561.364291 658.779971z"
+                            p-id="17313" fill="#0072CA"></path>
+                        <path
+                            d="M755.264443 658.779971l-99.414197 0c-8.010441 0-14.503319 6.493901-14.503319 14.503319l0 75.953879c0 8.010441 6.493901 14.503319 14.503319 14.503319l99.414197 0c8.010441 0 14.503319-6.493901 14.503319-14.503319l0-75.953879C769.768785 665.272849 763.274884 658.779971 755.264443 658.779971z"
+                            p-id="17314" fill="#0072CA"></path>
+                    </svg>
+                </span> Schedule</h2>
+            <div class="paragraph">
+                <p>
+                <table>
+                    <tr class="highlight">
+                        <td>01:30 pm - 01:40 pm</td>
+                        <td>Opening remarks</td>
+                    </tr>
+                    <tr>
+                        <td>01:40 pm - 02:15 pm</td>
+                        <td>Invited talk: Yaser Sheikh</td>
+                    </tr>
+                    <tr>
+                        <td>02:15 pm - 02:50 pm</td>
+                        <td>Invited talk: Deva Ramanan</td>
+                    </tr>
+                    <tr>
+                        <td>02:50 pm - 03:25 pm</td>
+                        <td>Invited talk: Lingjie Liu</td>
+                    </tr>
+                    <tr class="highlight">
+                        <td>03:25 pm - 04:30 pm</td>
+                        <td>Poster session / Coffee break</td>
+                    </tr>
+                    <tr>
+                        <td>04:30 pm - 05:05 pm</td>
+                        <td>Invited talk: Steve Seitz</td>
+                    </tr>
+                    <tr>
+                        <td>05:05 pm - 05:40 pm</td>
+                        <td>Invited talk: Michael Zollhoefer</td>
+                    </tr>
+                    <tr class="highlight">
+                        <td>05:40 pm - 05:50 pm</td>
+                        <td>Concluding remarks</td>
+                    </tr>
+                </table>
+
+                </p>
+            </div>
+        </div>
+        <div class="chapter" id="4">
+            <h2><span><svg t="1708740284290" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="19756" width="32" height="32">
+                        <path
+                            d="M921.6 725.504a440.832 440.832 0 0 0-84.48-230.912A102.4 102.4 0 1 0 739.328 563.2a102.4 102.4 0 0 0 19.456 0A331.776 331.776 0 0 1 819.2 716.8h-204.8v-51.2a256 256 0 0 0-102.4-204.8 256 256 0 1 0-307.2 0 256 256 0 0 0-102.4 204.8v60.416A153.6 153.6 0 0 0 153.6 1024h716.8a153.6 153.6 0 0 0 51.2-298.496zM204.8 256a153.6 153.6 0 1 1 153.6 153.6 153.6 153.6 0 0 1-153.6-153.6z m153.6 256a153.6 153.6 0 0 1 153.6 153.6v51.2H204.8v-51.2a153.6 153.6 0 0 1 153.6-153.6z m512 409.6H153.6a51.2 51.2 0 0 1 0-102.4h716.8a51.2 51.2 0 0 1 0 102.4z"
+                            fill="#0072CA" p-id="19757"></path>
+                    </svg>
+                </span>Speakers</h2>
+            <div class="paragraph">
+                <p>
+                <div class="introduction">
+                    <div class="item">
+                        <div class="row">
+                            <img class="image" src="./images/Yaser.jpeg" alt="Placeholder Image">
+                            <div>Yaser Sheikh
+                                <div>Homepage: <a href="http://www.cs.cmu.edu/∼yaser/">http://www.cs.cmu.edu/∼yaser/</a>
+                                    .</div>
+                            </div>
+
+                        </div>
+
+                        <div class="content">
+                            <p>Yaser Sheikh. Final confirmation. Relevance: Yaser Sheikh is an Associate
+                                Professor at the Robotics Institute (on leave), Carnegie Mellon University,
+                                with appointments in the Mechanical Engineering Department. He founded
+                                and directs Facebook Reality Lab in Pittsburgh focused on pursuing ”metric
+                                telepresence”: remote interactions in AR/VR that are indistinguishable from
+                                reality. His research is focused on machine perception and rendering of social
+                                behavior, spanning sub-disciplines in computer vision, computer graphics,
+                                and machine learning.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="row">
+                            <img class="image" src="./images/Deva.jpeg" alt="Placeholder Image">
+                            <div>Deva Ramanan
+                                <div>Homepage: <a href="https://www.cs.cmu.edu/∼deva/">
+                                        https://www.cs.cmu.edu/∼deva/</a>.</div>
+                            </div>
+
+                        </div>
+
+                        <div class="content">
+                            <p>Deva Ramanan. Final confirmation. Relevance: Deva Ramanan is a Professor in the Robotics
+                                Institute at Carnegie-Mellon University and the director
+                                of the CMU Argo AI Center for Autonomous Vehicle Research. His research
+                                interests span computer vision and machine learning, with a focus on visual
+                                recognition. He was named a National Academy of Sciences Kavli Fellow in
+                                2013. He has many impressive works on dynamic scene reconstruction, such
+                                as Dynamic 3D Gaussians and BANMo</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="row">
+                            <img class="image" src="./images/liulingjie.png" alt="Placeholder Image">
+                            <div>Lingjie Liu
+
+                                <div>
+                                    Homepage: <a
+                                        href="https://lingjie0206.github.io/.">https://lingjie0206.github.io/</a>.
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="content">
+                            <p>Lingjie Liu. Final confirmation. Relevance: Lingjie Liu is the Aravind K.
+                                Joshi Assistant Professor in the Department of Computer and Information
+                                Science at the University of Pennsylvania, where she leads the Penn Computer Graphics
+                                Lab. Her research interests are at the interface of Computer
+                                Graphics, Computer Vision, and AI, with a focus on Neural Scene Representations, Neural
+                                Rendering, and 3D Reconstruction.</p>
+
+                        </div>
+
+                    </div>
+                    <div class="item">
+                        <div class="row">
+                            <img class="image" src="./images/Michael.png" alt="Placeholder Image">
+                            <div>Michael Zollhoefer
+                                <div>Homepage: <a href=" https://zollhoefer.com/">https://zollhoefer.com/</a>.</div>
+                            </div>
+                        </div>
+
+                        <div class="content">
+                            <p>Michael Zollhoefer. Final confirmation. Relevance: Michael Zollhoefer is a
+                                Director at Reality Labs Research (RL-R) in Pittsburgh leading a group of
+                                six research and engineering teams. His group is focused on building the
+                                technology that is required to develop a Codec Telepresence system that is
+                                indistinguishable from reality. Achieving this goal requires building first-ofits-kind
+                                multi-view capture systems, complex pilot captures for data collection, as well as
+                                cutting-edge research on neural representations for avatars,
+                                audio, and spaces.
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="row">
+                            <img class="image" src="./images/Steve.jpeg" alt="Placeholder Image">
+                            <div>Steve Seitz
+                                <div>Homepage: <a href="https://www.smseitz.com/">https://www.smseitz.com/</a>.</div>
+                            </div>
+
+                        </div>
+
+                        <div class="content">
+                            <p>Steve Seitz. Tentative confirmation. Relevance: Steve Seitz is a professor
+                                at UW, where his research focuses on computer vision, computer graphics,
+                                and related topics. He co-directs the UW Reality Lab and is affiliated with
+                                GRAIL. He is also a Director at Google on the Project Starline team, and
+                                previously worked on VR, Photos, Computational Photography, and Maps.</p>
+
+                        </div>
+                    </div>
+                </div>
+                </p>
+            </div>
+        </div>
+        <div class="chapter" id="5">
+            <h2><span><svg t="1708740326047" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="24821" width="32" height="32">
+                        <path
+                            d="M810.666667 362.666667c0-106.666667-85.333333-192-192-192s-192 85.333333-192 192c0 51.2 19.2 98.133333 53.333333 132.266666-2.133333 0-6.4 2.133333-8.533333 4.266667-46.933333 19.2-89.6 46.933333-123.733334 83.2-36.266667 36.266667-64 78.933333-83.2 123.733333-14.933333 36.266667-25.6 74.666667-27.733333 115.2-2.133333 17.066667 12.8 32 29.866667 32h21.333333c14.933333 0 27.733333-10.666667 32-25.6v-2.133333-4.266667c2.133333-27.733333 10.666667-55.466667 21.333333-83.2 14.933333-36.266667 36.266667-68.266667 64-96 27.733333-27.733333 59.733333-49.066667 96-64 36.266667-14.933333 74.666667-23.466667 115.2-23.466666 108.8 0 194.133333-85.333333 194.133334-192z m-192 106.666666c-59.733333 0-106.666667-46.933333-106.666667-106.666666s46.933333-106.666667 106.666667-106.666667 106.666667 46.933333 106.666666 106.666667-46.933333 106.666667-106.666666 106.666666zM906.666667 640h-149.333334c-17.066667 0-32 14.933333-32 32v21.333333c0 17.066667 14.933333 32 32 32h149.333334c17.066667 0 32-14.933333 32-32v-21.333333c0-17.066667-14.933333-32-32-32zM906.666667 768h-234.666667c-17.066667 0-32 14.933333-32 32v21.333333c0 17.066667 14.933333 32 32 32h234.666667c17.066667 0 32-14.933333 32-32v-21.333333c0-17.066667-14.933333-32-32-32z"
+                            fill="#0072CA" p-id="24822"></path>
+                        <path
+                            d="M328.533333 552.533333c8.533333-4.266667 19.2-6.4 29.866667-10.666666 14.933333-4.266667 25.6-17.066667 25.6-32v-29.866667c0-17.066667-14.933333-32-29.866667-40.533333C334.933333 426.666667 320 405.333333 320 384s14.933333-42.666667 34.133333-55.466667c14.933333-8.533333 29.866667-23.466667 29.866667-40.533333v-21.333333c0-17.066667-14.933333-32-32-27.733334-66.133333 12.8-117.333333 72.533333-117.333333 145.066667 0 38.4 14.933333 74.666667 38.4 100.266667-32 17.066667-61.866667 38.4-87.466667 64-32 32-57.6 68.266667-74.666667 110.933333-6.4 14.933333-10.666667 29.866667-14.933333 44.8-4.266667 17.066667-8.533333 36.266667-8.533333 53.333333-2.133333 17.066667 12.8 32 29.866666 32h21.333334c17.066667 0 32-14.933333 34.133333-32 2.133333-23.466667 8.533333-44.8 17.066667-66.133333 12.8-32 32-59.733333 55.466666-83.2s51.2-42.666667 83.2-55.466667z"
+                            fill="#0072CA" p-id="24823"></path>
+                    </svg>
+                </span>Organizers</h2>
+            <div class="paragraph">
+                <div class="organize">
+                    <div class="item">
+                        <div class="row">
+                            <img class="image" src="./images/andreas_geiger.png" alt="Placeholder Image">
+                            <div>Andreas Geiger</div>
+                        </div>
+
+                        <div class="content">
+                            <p>Andreas Geiger is a Professor of computer science heading the Autonomous
+                                Vision Group (AVG). His group is part of the University of T¨ubingen and the
+                                MPI for Intelligent Systems located in T¨ubingen, Germany at the heart of CyberValley.
+                                His research group is developing machine learning models for computer vision, natural
+                                language and robotics with applications in self-driving,
+                                VR/AR and scientific document analysis. His work has been recognized
+                                with several prizes, including the Longuet-Higgins Prize, the Mark Everingham Prize, the
+                                IEEE PAMI Young Investigator Award, and the Heinz Maier
+                                Leibnitz Prize. He is the Program Chair of CVPR 2023. He co-organized
+                                several Autonomous Driving Workshops at ECCV 2018, CVPR 2021.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="row">
+                            <img class="image" src="./images/xiaowei_zhou.jpeg" alt="Placeholder Image">
+                            <div>Xiaowei Zhou</div>
+                        </div>
+
+                        <div class="content">
+                            <p>Xiaowei Zhou is a research professor of computer science with Zhejiang University, China.
+                                He received the PhD degree from the Hong Kong University
+                                and Science and Technology. His research interests include 3D reconstruction
+                                and scene understanding. He organized the Workshops on Geometry Meets
+                                Deep Learning at ECCV 2016, ICCV 2017, and ECCV 2018 respectively, and
+                                the Tutorial on Map Synchronization at CVPR 2019.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="row">
+                            <img class="image" src="./images/yiyi_liao.png" alt="Placeholder Image">
+                            <div>Yiyi Liao</div>
+                        </div>
+
+                        <div class="content">
+                            <p>Yiyi Liao is an assistant professor at Zhejiang University. She received her
+                                Ph.D. in Control Science and Engineering from Zhejiang University. Her
+                                research interest lies in 3D computer vision, including 3D reconstruction,
+                                scene understanding, and 3D-aware generative models. She co-organized the
+                                ICCV 2021 Workshop on Differentiable 3D Vision and Graphics.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="row">
+                            <img class="image" src="./images/pengsida.png" alt="Placeholder Image">
+                            <div>Sida Peng</div>
+                        </div>
+
+                        <div class="content">
+                            <p>Sida Peng is an Assistant Professor at the School of Software Technology,
+                                Zhejiang University. He received his Ph.D. degree from College of Computer
+                                Science and Technology at Zhejiang University in 2023, and obtained his
+                                bachelor degree in Information Engineering from Zhejiang University in 2018.
+                                His research interests include 3D reconstruction, rendering, and 3D generation. He
+                                received the 2020 CCF-CV Excellent Young Researcher Award and
+                                was selected as the 2022 Apple Scholar in AI/ML.</p>
+                        </div>
+                    </div>
+                </div>
+                </p>
+            </div>
+        </div>
+
+    </div>
+</body>
+<style>
+
+
+</style>
+
+</html>
