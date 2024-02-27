@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Workshop Proposal CVPR 2024</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap">
+
     <style>
         /* link style */
         a {
@@ -45,10 +47,9 @@
 
         li,
         p {
-            /* padding-left:15vw; */
             color: rgb(42, 42, 42);
-            font-size: 20px;
-            line-height: 1.6;
+            font-size: 22px;
+            line-height: 1.9;
             text-align: justify;
         }
 
@@ -62,7 +63,6 @@
 
         .chapter {
             width: 100%;
-            /* padding-left: 15vw; */
             background-color: #fff;
             margin-bottom: 0;
             margin-top: 0;
@@ -86,13 +86,9 @@
 
 
         /* layout style */
-        /* body{
-            background-color: rgb(221, 221, 221);
-        } */
         .container {
             z-index: 0;
             width: 100%;
-            /* max-width: 1000px; */
 
         }
 
@@ -113,7 +109,6 @@
 
         tr:nth-child(odd) {
             background-color: #f2f2f2;
-            /* 灰色背景 */
 
         }
 
@@ -123,12 +118,10 @@
 
         td:first-child {
             max-width: 50%;
-            /* font-size:medium; */
         }
 
         td:last-child {
             text-align: center;
-            /* text-align: right; */
         }
 
 
@@ -136,47 +129,48 @@
         /* title style */
         body {
             /* background-color: #fff; */
-            font-family: "Times New Roman", Times, serif;
+            font-family: Lato, sans-serif;
             width: 100%;
             padding: 0;
             margin: 0;
             background-image: url('./images/banner.png');
-
             background-size: 100% 100%;
-            /* 按照原始高度，自动调整宽度 */
             background-repeat: no-repeat;
-            /* 只显示一次 */
-            /* background-size: cover; */
         }
 
         .title {
+            position: fixed;
             width: 100%;
-            height: 85vh;
-            min-height: 600px;
+            height: 90vh;
             z-index: -2;
-            /* 图片尺寸适应容器 */
-            /* position: relative; */
-            /* 相对定位，使得内容在容器内定位 */
             overflow: hidden;
-            /* 隐藏溢出部分 */
+        }
+        .title video{
+            margin:0;
+            padding: 0;
+            position: absolute; 
+            right: 0;
+            top: 0;
+            width: 100%;
+            height: auto;
+            overflow: hidden; 
+            z-index:-2;
+
         }
 
         .title-box {
             position: fixed;
             z-index: -1;
-
             top: 13vh;
             right: 10vw;
-            /* width: 35vw; */
             border-radius: 50px;
             color: white;
             font-size: 30px;
             text-align: left;
-            /* background-color: #fff; */
-            background: rgba(255, 255, 255, .1);
+            background: rgba(255, 255, 255, .2);
             backdrop-filter: blur(10px);
             padding: 20px 40px;
-            /* 毛玻璃效果，10px 模糊度 */
+
         }
 
         .title-box h1 {
@@ -202,11 +196,8 @@
             padding-top: 40px;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            /* 两列，并且每列宽度相等 */
             align-content: center;
-            /* 垂直居中 */
             gap: 20px;
-            /* 间距 */
             width: fit-content;
         }
 
@@ -218,7 +209,7 @@
             padding: 10px 20px;
             text-align: center;
             width: fit-content;
-            border: 1px solid #1CB0DD;
+            border: 1px solid #0072CA;
 
         }
 
@@ -238,7 +229,6 @@
 
             margin-bottom: 30px;
             box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
-            /* 水平偏移量 垂直偏移量 模糊度 扩散度 阴影颜色 */
             padding: 30px;
             border-radius: 30px;
         }
@@ -291,13 +281,11 @@
             display: flex;
             margin-bottom: 30px;
             box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
-            /* 水平偏移量 垂直偏移量 模糊度 扩散度 阴影颜色 */
             padding: 30px;
             border-radius: 30px;
         }
 
         .organize .row {
-            /* width: fit-content; */
             display: block;
             justify-content: center;
             align-items: center;
@@ -322,21 +310,28 @@
             position: fixed;
             top: 40%;
             left: 20px;
-            border-left: #1DB2DF solid 5px;
+            border-left: #0072CA solid 5px;
+            transition:0.7s;
         }
 
         .left-bar div {
             font-size: 20px;
             padding: 15px;
-            color: #1DB2DF;
-            /* filter:invert(100%); */
-            /* background-color: #fff; */
+            color: #0072CA;
+        }
+        .scrolled{
+            opacity: 0;
         }
     </style>
 </head>
 
 <body>
-    <div class="title">
+    <div class="title" id="myVideo">
+        <video muted autoplay="autoplay" loop="loop">
+            <source src="./images/banner.mp4" type="video/mp4"> 
+            Your browser does not support HTML5 video.
+        </video>
+
         <div class="title-box">
             <h1>1st Workshop on </h1>
             <h1 class="high">Neural Volumetric Video</h1>
@@ -354,7 +349,7 @@
 
         </div>
     </div>
-    <div class="left-bar">
+    <div class="left-bar scrolled" id="left-bar">
          <a href="#1"><div>
                 Motivation</div>
             </a>
@@ -371,7 +366,9 @@
                 Organizers</div>
             </a>
     </div>
-    <div class="container">
+   
+    <div style="height: 90vh;"></div>
+    <div class="container" id="container">
 
         <div class="chapter" id="1">
             <div style="height: 10vh;z-index:0;position:relative;margin:0;"></div>
@@ -708,13 +705,27 @@
                 </div>
                 </p>
             </div>
+            <div style="height: 20vh;"></div>
         </div>
+        
 
     </div>
 </body>
-<style>
+<script>
+        var scrollableDiv = document.getElementById("container");
+        var targetDiv = document.getElementById("left-bar");
+        document.addEventListener("scroll", function() {
+                var scrollTop = scrollableDiv.offsetTop;
+                console.log(scrollTop)
+                var scrollDistance = window.scrollY;
+                console.log(scrollDistance)
+                if (scrollTop*0.6 > scrollDistance) {
+                    targetDiv.classList.add("scrolled");
+                } else {
+                    targetDiv.classList.remove("scrolled");
+                }
+                });
 
-
-</style>
+</script>
 
 </html>
