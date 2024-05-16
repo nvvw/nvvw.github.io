@@ -319,15 +319,32 @@
         .scrolled{
             opacity: 0;
         }
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            z-index:-2;
+        }
+
+        .image-container img {
+            flex: 50%; /* This will make each image take up 50% of the container's width, effectively creating a 2x2 grid */
+            width: 50%;
+            z-index:-2;
+        }
     </style>
 </head>
 
 <body>
     <div class="title" id="myVideo">
-        <video muted autoplay="autoplay" loop="loop">
+        <!-- <video muted autoplay="autoplay" loop="loop">
             <source src="./images/banner.mp4" type="video/mp4"> 
             Your browser does not support HTML5 video.
-        </video>
+        </video> -->
+        <div class="image-container">
+            <img src="./images/banner1.png" alt="">
+            <img src="./images/banner2.png" alt="">
+            <img src="./images/banner3.png" alt="">
+            <img src="./images/banner4.png" alt="">
+        </div>
 
         <div class="title-box">
             <h1>1st Workshop on </h1>
@@ -530,7 +547,7 @@
                         </div>
 
                         <div class="content">
-                            <p>Jingyi Yu. Relevance: Jingyi is currently the Faculty Search Committee Directora and the SIST Tenure & Promotion Committee Director. Prof. Jingyi Yu is a professor and executive dean of the School of Information Science and Technology at ShanghaiTech University. His research interests span a range of topics in computer vision and computer graphics, especially on computational photography and non-conventional optics and camera designs. 
+                            <p>Jingyi Yu is currently the Faculty Search Committee Directora and the SIST Tenure & Promotion Committee Director. Prof. Jingyi Yu is a professor and executive dean of the School of Information Science and Technology at ShanghaiTech University. His research interests span a range of topics in computer vision and computer graphics, especially on computational photography and non-conventional optics and camera designs. 
                             </p>
                         </div>
                     </div>
@@ -545,7 +562,7 @@
                         </div>
 
                         <div class="content">
-                            <p>Yaser Sheikh. Relevance: Yaser Sheikh is an Associate
+                            <p>Yaser Sheikh is an Associate
                                 Professor at the Robotics Institute (on leave), Carnegie Mellon University,
                                 with appointments in the Mechanical Engineering Department. He founded
                                 and directs Facebook Reality Lab in Pittsburgh focused on pursuing ”metric
@@ -566,7 +583,7 @@
                         </div>
 
                         <div class="content">
-                            <p>Deva Ramanan. Relevance: Deva Ramanan is a Professor in the Robotics
+                            <p>Deva Ramanan is a Professor in the Robotics
                                 Institute at Carnegie-Mellon University and the director
                                 of the CMU Argo AI Center for Autonomous Vehicle Research. His research
                                 interests span computer vision and machine learning, with a focus on visual
@@ -589,7 +606,7 @@
                         </div>
 
                         <div class="content">
-                            <p>Lingjie Liu. Relevance: Lingjie Liu is the Aravind K.
+                            <p>Lingjie Liu is the Aravind K.
                                 Joshi Assistant Professor in the Department of Computer and Information
                                 Science at the University of Pennsylvania, where she leads the Penn Computer Graphics
                                 Lab. Her research interests are at the interface of Computer
@@ -613,7 +630,7 @@
                         </div>
 
                         <div class="content">
-                            <p>Changil Kim. Relevance: Changil Kim is a Research Scientist at Meta, specializing in the convergence of computer graphics, vision, and machine learning. He holds a PhD from ETH Zurich, where he collaborated with Disney Research. His notable recognitions include the Swiss National Science Foundation Postdoctoral Fellowship and the Sony Focused Research Award.</p>
+                            <p>Changil Kim is a Research Scientist at Meta, specializing in the convergence of computer graphics, vision, and machine learning. He holds a PhD from ETH Zurich, where he collaborated with Disney Research. His notable recognitions include the Swiss National Science Foundation Postdoctoral Fellowship and the Sony Focused Research Award.</p>
 
                         </div>
 
@@ -633,7 +650,7 @@
 
                         <div class="content">
                             <p>
-                                Zhen Xu. Relevance: Zhen Xu is a PhD student in Computer Science at Zhejiang University, under the guidance of Prof. Xiaowei Zhou. He completed his Bachelor’s degree in Computer Science at the same institution in 2022. His research primarily explores 3D/4D neural reconstruction and rendering, as well as digital humans. He has many impressive works on 3D/4D neural reconstruction and rendering, such as 4K4D and EasyVolcap</p>
+                                Zhen Xu is a PhD student in Computer Science at Zhejiang University, under the guidance of Prof. Xiaowei Zhou. He completed his Bachelor’s degree in Computer Science at the same institution in 2022. His research primarily explores 3D/4D neural reconstruction and rendering, as well as digital humans. He has many impressive works on 3D/4D neural reconstruction and rendering, such as 4K4D and EasyVolcap.</p>
 
                         </div>
 
